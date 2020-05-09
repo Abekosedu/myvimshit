@@ -1,0 +1,54 @@
+"from Real python
+set nocompatible        "required
+filetype off            "required
+
+"set the runtime path to include Vundle and init
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+"alternatively, pass a path where vundle should install plugins
+
+"let vundle manage vundle
+Plugin 'gmarik/Vundle.vim'
+
+"add all plugins here:
+
+Plugin 'vim-syntastic/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'Lokaltog/powerline',{'rtp':'powerline/binding/vim/'}
+
+
+"All plugins must be added before this line
+call vundle#end()       "required
+filetype plugin indent on       "required
+
+"CUSTOMIZATION ---------------------------------------
+
+"PEP 8 Indentation
+au BufNewFile, BufRead *.py
+\set tabstop=4
+\set softtabstop=4
+\set shiftwidth=4
+\set textwidth=79
+\set expandtab
+\set autoindent
+\set fileformat=unix
+
+"FUll STACK DEV
+au BufNewFile,BufRead *.js, *html, *css
+\set tabstop=2
+\set softtabstop=2
+\set shiftwidth=2
+
+"Flag bad whitespace
+au BufRead, BufNewFile *.py, *.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+"Should be working in UTF-8 with python
+set encoding=utf-8
+
+"lets make it look pretty
+let python_highlight_all=1
+syntax on
+set nu
